@@ -1,8 +1,6 @@
-// src/components/NewApplicationModal.tsx
-import { useState } from "react";
 import styled from "styled-components";
 
-const Overlay = styled.div`
+export const Overlay = styled.div`
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -12,7 +10,7 @@ const Overlay = styled.div`
   z-index: 50;
 `;
 
-const ModalContainer = styled.div`
+export const ModalContainer = styled.div`
   background: var(--color-background);
   border-radius: 12px;
   color: var(--color-foreground);
@@ -24,18 +22,18 @@ const ModalContainer = styled.div`
   position: relative;
 `;
 
-const ModalHeader = styled.div`
+export const ModalHeader = styled.div`
   padding: 2.25rem 1.5rem 0.5rem;
   font-weight: bold;
   font-size: 1.25rem;
   border-bottom: 1px solid #e5e7eb;
 `;
 
-const ModalBody = styled.div`
+export const ModalBody = styled.div`
   padding: 1rem 1.5rem 2rem;
 `;
 
-const SectionHeader = styled.div<{ $collapsed?: boolean }>`
+export const SectionHeader = styled.div<{ $collapsed?: boolean }>`
   display: flex;
   justify-content: space-between;
   font-weight: 600;
@@ -44,14 +42,14 @@ const SectionHeader = styled.div<{ $collapsed?: boolean }>`
   /*border-bottom: 1px solid #e5e7eb;*/
 `;
 
-const SectionContent = styled.div<{ $collapsed: boolean }>`
+export const SectionContent = styled.div<{ $collapsed: boolean }>`
   max-height: ${(props) => (props.$collapsed ? "0" : "200px")};
   overflow: hidden;
   transition: max-height 0.3s ease;
   padding: ${(props) => (props.$collapsed ? "0" : "0.5rem 0")};
 `;
 
-const TextArea = styled.textarea`
+export const TextArea = styled.textarea`
   width: 100%;
   height: 100px;
   resize: none;
@@ -61,7 +59,7 @@ const TextArea = styled.textarea`
   box-sizing: border-box;
 `;
 
-const CloseButton = styled.button`
+export const CloseButton = styled.button`
   position: absolute;
   right: 0px;
   background: transparent;
@@ -77,39 +75,3 @@ const CloseButton = styled.button`
     color: #ef4444;
   }
 `;
-
-interface NewApplicationModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export default function NewApplicationModal({
-  isOpen,
-  onClose,
-}: NewApplicationModalProps) {
-  if (!isOpen) return null;
-
-  const handleContainerClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
-
-  return (
-    <Overlay onClick={onClose}>
-      <ModalContainer onClick={handleContainerClick}>
-        <CloseButton onClick={onClose}>×</CloseButton>
-        <ModalHeader>
-          <div>New Application</div>
-        </ModalHeader>
-        <ModalBody>
-          <SectionHeader>
-            Job Link / Job Description
-          </SectionHeader>
-          <SectionContent $collapsed={false}>
-            <TextArea placeholder="Paste the job application link or description" />
-            <button>Create</button>
-          </SectionContent>
-        </ModalBody>
-      </ModalContainer>
-    </Overlay>
-  );
-}
