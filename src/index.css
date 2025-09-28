@@ -1,0 +1,116 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 100%;
+  height: 100%;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* src/index.css or global CSS */
+
+:root {
+  --color-background: #fdfdffff; /* white */
+  --color-foreground: #393d3fff; /* onyx */
+  --color-accent: #62929eff; /* blue-munsell */
+  --color-muted: #c6c5b9ff; /* silver */
+  --color-secondary: #546a7bff; /* paynes-gray */
+  --color-accent-100: #1f9cee;
+
+  --color-hover: var(--color-accent-100);
+  --color-button-bg: var(--color-accent);
+  --color-button-text: var(--color-background);
+  --color-button-border: var(--color-secondary);
+
+  --color-status-applied: #c6c5b9ff;
+  --color-status-interview: #62929eff;
+  --color-status-offered: #546a7bff;
+  --color-status-rejected: #393d3fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #393d3fff;
+    --color-foreground: #fdfdffff;
+    --color-accent: #3395d6;
+    --color-muted: #c6c5b9ff;
+    --color-secondary: #546a7bff;
+    --color-accent-100: #1f9cee;
+
+    --color-hover: var(--color-accent-100);
+    --color-button-bg: var(--color-accent);
+    --color-button-text: #fff;
+    --color-button-border: var(--color-secondary);
+
+    --color-status-applied: #c6c5b9ff;
+    --color-status-interview: #62929eff;
+    --color-status-offered: #546a7bff;
+    --color-status-rejected: rgb(126, 126, 126);
+  }
+}
+
+/* Buttons */
+button {
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+  border: 1px solid var(--color-button-border);
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  background-color: var(--color-hover);
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-hover);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
